@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: Bhuvana-ReplicaSet
+  labels: 
+    app: web
+spec: #Defines the behaviour od replicaset
+  replicas: 2
+  selector:
+    matchLabels:
+      web: ngnix
+  template:
+    matadata:
+      labels: 
+        web: ngnix
+    spec: # Defines the behaviour of POD
+      containers: 
+        - image: ngnix
+          name:ngnix-container
+          ports:
+            - containerPort: 80
