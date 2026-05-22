@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bhuvana-pod
+spec:
+  containers:
+    - name: Fitness-c
+      image: bhuvana20/fit:v1.0.0
+      ports:
+        -  containerPort: 5000
