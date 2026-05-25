@@ -1,21 +1,20 @@
-apiVersion: networking.k8s.io/v1
-kind:Ingress
+apiversion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name:bhuvana-Ingress
+  name: bhuvana-ingress
   annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect:"false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   rules:
-    - http: 
+    - http:
         paths:
-        - path: /nginx(/\$)(.*)
-          pathtype: Prefix
-          backend:
-            service:
-              name: bhuvana-service
-              ports:
-                number: 81
-
+          - path: /nginx(/|$)(.*)
+            pathtype: Prefix
+            backend:
+              service:
+                name: bhuvana-service
+                port:
+                  number: 81
