@@ -26,6 +26,8 @@ spec:
               envFrom:
                 - ConfigMapRef:
                     name: bhuvana-configmap
+                  secretRef:
+                    name: bhuvana-secret
 
 ---
 apiVersion: v1
