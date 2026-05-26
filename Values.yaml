@@ -1,0 +1,26 @@
+name: bhuvana-ns
+replicas: 3
+labels:
+  app: web
+  containers:
+    - name: veg-container
+      port: 3000
+service:
+  name: veg-service
+  port: 3000
+  targetPort: 3008
+  type: LoadBalancer
+configMap:
+  name: bhuvana-configmap
+  data:
+    DB_Host: Mongodb
+    DB_Port: "27017"
+    DB_User: admin
+    APP_name: vegetable-order
+    APP_Port: "3000"
+secret: 
+  name: bhuvana-secret
+  type: Opaque
+  data: 
+    DB_User: QURNSU4=
+    DB_Passowrd: dHdpbmtsZTEyMw==
